@@ -1,0 +1,78 @@
+<div class="container">
+    <div class="col-lg-12 row">
+        <div class="form-group col-lg-7">
+            <input type="text" class="form-control" placeholder="Search" [(ngModel)]="searchText">
+        </div>
+        <i class="fas fa-list offset-lg-1" (click)="toggleViewList()">&nbsp;List View</i>&nbsp;&nbsp;
+        <i class="fas fa-address-card" (click)="toggleViewCard()">Card View</i>
+        <button class="btn btn-outline-danger offset-lg-1" (click)="logout()" style="height:40px">Logout</button>
+    </div>
+    <ng-container *ngIf="(users | search:searchText) as result">
+
+        <!-- start of card view -->
+        <div class="container mt-5" *ngIf="this.view">
+            <div class="card-group">
+                <div class="col-4 rowCard" *ngFor="let user of result;let i =index">
+                    <div class="card card-body " style="background-color: rgba(176, 165, 202, 0.356);border:5px outset white; border-radius: 10px;">
+
+                        <div class="card-body">
+                            <div class="row">
+                                <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;text-align: center;font-weight: 800;border:1px inset rgb(68, 24, 24) ;border-radius: 6px;  width:120px;height:40px;background-color: beige;">Balance: {{user.balance}}</div>
+                                <button class="btn btn-outline-danger" (click)=deleteUser(user.userid)>Delete</button>
+                                <div style="text-align: center;border:1px solid rgb(68, 24, 24);font-weight:bolder ;border-radius: 6px;  width:70px;height:40px;background-color: beige;">Id: {{user.userid}}</div>
+                            </div>
+                            <h5 class=" cardData textSize" style="margin-top: 10px; ">Name: {{user.name}}</h5>
+                            <h6 class=" cardData textSize">Mob: {{user.phNo}}</h6>
+                            <h6 class="cardData textSize">Username: {{user.username}}</h6>
+                            <h6 class=" cardData textSize">Gender: {{user.gender}}</h6>
+                            <h6 class="cardData textSize">Email: <br> {{user.email}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- End of card view ayout -->
+
+
+        <!-- Start of list view layout -->
+        <div *ngIf="this.view==false">
+            <br><br><br>
+            <table class="table table-striped table-responsive table-hover  text-bold">
+                <thead style="background-color:darkseagreen;">
+                    <tr>
+                        <th>User Id</th>
+                        <th>Name</th>
+                        <th>Phone Number</th>
+                        <th>Username</th>
+                        <th>Gender</th>
+                        <th>Email id</th>
+                        <th>Balance</th>
+                        <th>Delete</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let user of result;let i=index">
+                        <td>{{user.userid}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.phNo}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.gender}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.balance}}</td>
+                        <td><button class="btn btn-outline-danger" (click)="deleteUser(user.userid)">Delete</button></td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <h2 *ngIf="result.length==0">
+            Sorry,User does not exist...!!!!!
+        </h2>
+
+        <!-- end of list view layout -->
+    </ng-container>
+</div>
+<footer style="height: 100px;"></footer>

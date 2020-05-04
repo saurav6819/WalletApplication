@@ -1,0 +1,31 @@
+<div class="container-fluid">
+    <div class="row col-md-12 ">
+
+
+        <ul class="oppo">
+            <li><a class="active" routerLink="home">Home</a></li>
+            <li><a routerLink="services">Services</a></li>
+            <li><a routerLink="contact">Contact</a></li>
+            <li style="margin-left:60%;"><a routerLink="signup" class="noCss "><i class="fas fa-user">&nbsp;&nbsp;Sign Up</i></a>&nbsp;&nbsp;</li>
+            <li><a routerLink="login" class="noCss"><i class="fas fa-sign-in-alt ">&nbsp;&nbsp;Login</i></a></li>
+        </ul>
+
+    </div>
+</div>
+<div style="margin-bottom:10%">
+    <router-outlet></router-outlet>
+</div>
+<footer>
+
+    <span style="margin-left:5%;font-size:20px">&copy; Copyright 2020, XYZ Bank Wallet</span>
+    <span style="margin-left:22%;"> Follow Us</span>
+    <br>
+    <div class="footer-image">
+        <img src="https://img.icons8.com/color/48/000000/facebook-circled.png" />
+        <img src="https://img.icons8.com/color/48/000000/instagram-new.png" />
+        <img src="https://img.icons8.com/color/48/000000/linkedin.png" />
+        <img src="https://img.icons8.com/color/48/000000/twitter.png" />
+        <span style="margin-left:25%;font-size: 25px;color:rgb(245, 245, 250);">{{todaysDate|date:'medium'}} </span>
+    </div>
+
+</footer>

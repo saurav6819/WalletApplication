@@ -1,0 +1,43 @@
+<div class="container row" style="margin-left: 7%;margin-top:1%">
+    <div><img src="../../../assets/ewallets-removebg-preview.png"></div>
+
+    <div id="login">
+        <form [formGroup]="loginForm">
+            <!-- Start of username input field -->
+            <div style="font-size: xx-large;font-weight: 800;font-family: monospace;margin-left: 60px;">User Login</div>
+            <br><br>
+            <div class="username">
+                <img src="https://img.icons8.com/ios-filled/32/000000/username.png" style="margin-top: -3px;margin-left: 10px;height:40px" />&nbsp;
+                <input type="text" id="usernameInput" formControlName="username" placeholder="Username">
+            </div>
+            <div *ngIf="submitted && loginForm.controls.username.errors">
+                <div class="text-danger" *ngIf="loginForm.controls.username.errors.required">
+                    Username is required ..!
+                </div>
+            </div>
+            <!-- End of username input field -->
+            <br><br>
+            <!-- Start of password input field -->
+            <div class="password">
+                <img src="https://img.icons8.com/metro/32/000000/lock.png" style="margin-top: -3px;margin-left: 10px;" />&nbsp;
+                <input type="password" id="passwordInput" formControlName="password" placeholder="Password">
+            </div>
+            <div *ngIf="submitted && loginForm.controls.password.errors">
+                <div class="text-danger" *ngIf="loginForm.controls.password.errors.required">
+                    Password is required ..!
+                </div>
+
+            </div>
+            <!-- End of name input field -->
+            <div class="text-danger" *ngIf="matchCredential">
+                <br>
+                <h5>{{errorMessage}}</h5>
+            </div>
+            <br>
+            <div>
+                <button class="btn btn-success" (click)="login()" style="border-radius: 20px;width: 130px;height: 50px;margin-left: 150px;">Login</button>
+            </div>
+        </form>
+
+    </div>
+</div>

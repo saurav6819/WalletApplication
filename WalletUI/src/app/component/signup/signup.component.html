@@ -1,0 +1,153 @@
+<div class="container-fluid row">
+    <div class="col-lg-6" style="margin-left: 8%;margin-top: 2%;">
+        <form [formGroup]="addForm">
+            <!-- Start of name input field -->
+            <div class="col-md-7">
+                <div class="input-group mb-3 input-field">
+                    <span><img src="https://img.icons8.com/ios-filled/50/000000/name.png" /></span>&nbsp;&nbsp;
+                    <input type="text" formControlName="name" placeholder="Full Name">
+                </div>
+                <!-- Validation Messages -->
+                <div *ngIf="submitted && addForm.controls.name.errors">
+                    <div class="text-danger" *ngIf="addForm.controls.name.errors.required">
+                        Name is required ..!
+                    </div>
+                    <div class="text-danger" *ngIf="addForm.controls.name.errors.pattern">
+                        Name must start with a capital letter and should not contain any digit. ..!
+                    </div>
+                </div>
+            </div>
+            <!-- End of name input field -->
+
+            <!-- Start of username input field -->
+            <div class="col-md-7">
+                <div class="input-group mb-3 input-field">
+                    <span><img src="https://img.icons8.com/ios-filled/50/000000/username.png" /></span>&nbsp;&nbsp;
+                    <input type="text" formControlName="username" placeholder="Username">
+                </div>
+                <!-- Validation Messages -->
+                <div *ngIf="submitted && addForm.controls.username.errors">
+                    <div class="text-danger" *ngIf="addForm.controls.username.errors.required">
+                        Username is required ..!
+                    </div>
+                    <div class="text-danger" *ngIf="addForm.controls.username.errors.pattern">
+                        Username should start with character only ..!
+                    </div>
+                </div>
+                <div class="text-danger" *ngIf="usernameFlag">
+                    {{usernameErrorMessage}}
+                </div>
+            </div>
+
+            <!-- End of username input field -->
+
+            <!-- Start of phone number input field -->
+
+            <div class="col-md-7">
+                <div class="input-group mb-3 input-field">
+                    <span style="font-weight: 700;font-size: x-large;"><img
+                            src="https://img.icons8.com/ios-filled/50/000000/phone.png">+91</span>&nbsp;&nbsp;
+                    <input type="text" formControlName="phNo" placeholder="Phone Number">
+                </div>
+                <!-- Validation Messages -->
+                <div *ngIf="submitted && addForm.controls.phNo.errors">
+                    <div class="text-danger" *ngIf="addForm.controls.phNo.errors.required">
+                        Mobile Number is required ..!
+                    </div>
+                    <div class="text-danger" *ngIf="addForm.controls.phNo.errors.pattern">
+                        Mobile Number must be of 10 digits and should be numeric ..!
+                    </div>
+                </div>
+                <div class="text-danger" *ngIf="phNoFlag">
+                    {{phNoErrorMessage}}
+                </div>
+            </div>
+            <!-- End of phone number input field -->
+
+            <!-- Start of email input field -->
+            <div class="col-md-7">
+                <div class="input-group mb-3 input-field">
+                    <span><img src="https://img.icons8.com/ios-filled/50/000000/email-open.png" /></span>&nbsp;&nbsp;
+                    <input type="email" formControlName="email" placeholder="Recipient's email-id" style="width:265px;">
+                    <div class="input-group-append">&nbsp;&nbsp;
+
+                    </div>
+                </div>
+                <!-- Validation Messages -->
+                <div *ngIf="submitted && addForm.controls.email.errors">
+                    <div class="text-danger" *ngIf="addForm.controls.email.errors.required">
+                        Email is required ..!
+                    </div>
+                    <div class="text-danger" *ngIf="addForm.controls.email.errors.email">
+                        Invalid Email Address ..!
+                    </div>
+                </div>
+                <div class="text-danger" *ngIf="emailFlag">
+                    {{emailErrorMessage}}
+                </div>
+            </div>
+
+            <!-- End of name input field -->
+
+
+
+            <!-- Start of gender input field -->
+            <div class="col-md-7">
+                <div class="input-group mb-3 input-field">
+                    <span><img src="https://img.icons8.com/ios-filled/50/000000/gender.png" /></span>&nbsp;&nbsp;
+
+                    <div style="margin-top:10px">
+                        <input type="radio" value="Male" formControlName="gender"> Male
+                        <input type="radio" value="Female" formControlName="gender"> Female
+                        <input type="radio" value="Other" formControlName="gender"> Other </div>
+                </div>
+            </div>
+            <!-- Validation Messages -->
+            <div *ngIf="submitted && addForm.controls.gender.errors">
+                <div class="text-danger" *ngIf="addForm.controls.gender.errors.required">
+                    Gender is required ..!
+                </div>
+
+            </div>
+
+            <!-- End of gender input field -->
+
+
+
+
+            <!-- Start of password input field -->
+
+            <div class="col-md-7">
+                <div class="input-group mb-3 input-field">
+                    <span><img src="https://img.icons8.com/ios-filled/50/000000/password.png" /></span>&nbsp;&nbsp;
+                    <input type="password" formControlName="password" placeholder="Password">
+                </div>
+                <!-- Validation Messages -->
+                <div *ngIf="submitted && addForm.controls.password.errors">
+                    <div class="text-danger" *ngIf="addForm.controls.password.errors.required">
+                        Password is required ..!
+                    </div>
+                    <div class="text-danger" *ngIf="addForm.controls.password.errors.pattern">
+                        Password must have 1 Lowercase letters, 1 Uppercase letters, 1 Numbers and 1 Special characters ..!
+                    </div>
+                </div>
+            </div>
+
+            <!-- End of password input field -->
+
+
+
+
+            <div>
+                <button class="signupButton" (click)="addUser()">Sign Up</button> &nbsp; &nbsp;
+
+            </div>
+        </form>
+
+
+
+    </div>
+    <div class="col-lg-3">
+        <img src="../../../assets/signuo.png" height="500px">
+    </div>
+</div>

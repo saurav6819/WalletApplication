@@ -1,0 +1,25 @@
+.moneyInput{
+    background-color:rgba(255, 255, 255, 0);
+    outline: none;
+    border:none;
+    
+    font-size: x-large;
+    margin-left: 10px;
+    padding: 5px;;
+}
+.moneyDiv{
+    border-top: 2px solid green;
+    border-bottom: 2px solid green;
+    border-radius: 10px;
+    width:350px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}

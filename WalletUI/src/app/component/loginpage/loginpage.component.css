@@ -1,0 +1,28 @@
+.username{
+    background-color: rgba(153, 152, 152, 0.404);
+    border-radius: 30px;
+    width: 300px;
+    height: 55px;
+}
+.password{
+    background-color: rgba(153, 152, 152, 0.404);
+    border-radius: 30px;
+    width: 300px;
+    height: 55px;
+}
+#usernameInput,#passwordInput{
+    border:none;
+    background-color: rgba(255, 255, 255, 0);
+    width: 230px;
+    height: 40px;
+    margin-top: 5px;
+    margin-left: 5px;
+    font-size: x-large;
+}
+input:focus{
+    outline: none;
+}
+#login{
+    margin-top: 50px;
+    margin-left: 300px;
+}

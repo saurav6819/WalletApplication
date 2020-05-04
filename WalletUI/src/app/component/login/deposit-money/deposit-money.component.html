@@ -1,0 +1,97 @@
+<div class="container">
+    <form [formGroup]="depositMoneyForm">
+        <!-- Start of money input field -->
+        <div>
+            <div class=" moneyDiv">
+                <span><img src="https://img.icons8.com/ios-filled/50/000000/rupee.png"/></span>
+                <input type="number" class="moneyInput" formControlName="money" placeholder="Enter Money">
+            </div>
+            <!-- Validation Messages -->
+            <div *ngIf="submitted && depositMoneyForm.controls.money.errors">
+                <div class="text-danger" *ngIf="depositMoneyForm.controls.money.errors.required">
+                    Please Enter the Money ..!
+                </div>
+            </div>
+        </div>
+        <!-- End of money input field -->
+        <br>
+        <button style="margin-left:3%" class="btn btn-outline-danger" (click)="togglePaymentMethod(true)">Deposit by Card</button>&nbsp;&nbsp;
+        <button class="btn btn-outline-success" (click)="togglePaymentMethod(false)">Deposit by UPI</button>
+
+        <!-- Start of card details input fields -->
+        <div *ngIf="paymentVia" class="Card-Payment">
+            <input type="text" placeholder="Name on Card" class="nameInput" formControlName="name">
+            <!-- Validation Messages -->
+            <div *ngIf="submitted && depositMoneyForm.controls.name.errors">
+                <div class="text-danger" *ngIf="depositMoneyForm.controls.name.errors.required">
+                    Please Enter the Name ..!
+                </div>
+            </div>
+            <div>
+                <span>&nbsp;&nbsp;<img src="https://img.icons8.com/dusk/64/000000/bank-card-back-side.png"/></span>
+                <input type="number" class="cardInput" placeHolder="Enter Card Number" formControlName="cardNumber" ng-minlength=16 ng-maxlength=16 />
+                <!-- Validation Messages -->
+                <div *ngIf="submitted && depositMoneyForm.controls.cardNumber.errors">
+                    <div class="text-danger" *ngIf="depositMoneyForm.controls.cardNumber.errors.required">
+                        Please Enter the Card Number ..!
+                    </div>
+                    <div class="text-danger" *ngIf="depositMoneyForm.controls.cardNumber.errors.pattern ">
+                        Card Number Should be valid and be of 16 digits ..!
+                    </div>
+
+                </div>
+            </div>
+            <div>
+                <input type="month" class="monthYear" placeholder="MM/YY" min="2020-05" formControlName="monthYear">
+                <!-- Validation Messages -->
+                <div *ngIf="submitted && depositMoneyForm.controls.monthYear.errors">
+                    <div class="text-danger" *ngIf="depositMoneyForm.controls.monthYear.errors.required">
+                        Please Enter the Month and Year ..!
+                    </div>
+                </div>
+                <input type="text" maxlength="3" minlength="3" class="cvvInput" placeholder="CVV" formControlName="cvv">
+                <!-- Validation Messages -->
+                <div *ngIf="submitted && depositMoneyForm.controls.cvv.errors">
+                    <div class="text-danger" *ngIf="depositMoneyForm.controls.cvv.errors.required">
+                        Please Enter the CVV Number ..!
+                    </div>
+                    <div class="text-danger" *ngIf="depositMoneyForm.controls.cvv.errors.minlength">
+                        CVV Number must be of 3 digits..!
+                    </div>
+                </div>
+            </div>
+            <div>
+                <input type="password" maxlength="4" formControlName="pin" class="pinInput" placeholder="Enter Pin">
+                <!-- Validation Messages -->
+                <div *ngIf="submitted && depositMoneyForm.controls.pin.errors">
+                    <div class="text-danger" *ngIf="depositMoneyForm.controls.pin.errors.required">
+                        Please Enter the Pin number ..!
+                    </div>
+                    <div class="text-danger" *ngIf="depositMoneyForm.controls.pin.errors.minlength">
+                        Pin Number must be of 4 digits..!
+                    </div>
+                </div>
+                <button class="btn btn-success" style="margin-left: 30%;" (click)="deposit()">Deposit</button>
+            </div>
+        </div>
+        <!-- End of card details input fields -->
+    </form>
+    <!-- Start of upi input field -->
+    <form [formGroup]="upiForm">
+        <div *ngIf="paymentVia==false" class="UPI-Payment">
+            <span><img src="../../../assets/bhimUpi.png" height="45px"></span>
+            <input type="text" class="upiInput" placeholder="Enter Your UPI Id" formControlName="upiId">
+            <!-- Validation Messages -->
+            <div *ngIf="submitted && upiForm.controls.upiId.errors">
+                <div class="text-danger" *ngIf="upiForm.controls.upiId.errors.required">
+                    UPI Id is required ..!
+                </div>
+            </div>
+            <button class="btn btn-success" style="margin-left: 50%;" (click)="deposit()">Deposit</button>
+        </div>
+        <div class="text-danger" *ngIf="errorFlag">
+            <h4>{{errorMessage}}</h4>
+        </div>
+    </form>
+    <!-- End of upi input field -->
+</div>

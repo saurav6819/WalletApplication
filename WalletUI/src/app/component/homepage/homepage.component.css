@@ -1,0 +1,22 @@
+h3 {
+    color: black;
+    font-family: "Comic Sans MS";
+}
+
+h2 {
+    font-style: italic;
+    font-family: Georgia, Times, 'Times New Roman', serif;
+    font-weight: 600;
+}
+
+.about {
+    width: 600px;
+    margin-top: 6%;
+    margin-left: 3%;
+}
+
+.aboutImage {
+    opacity: 0.6;
+    margin-top: 6%;
+    margin-left: 5%;
+}

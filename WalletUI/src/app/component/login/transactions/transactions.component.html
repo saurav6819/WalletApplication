@@ -1,0 +1,20 @@
+<div class="container row" style="margin-left: 20px;margin-top:10px;">
+    <table class="table table-striped table-responsive table-hover text-danger" style="height: 500px;border-radius: 20px;">
+        <thead style="background-color: bisque;">
+            <tr>
+                <th>Transaction Id</th>
+                <th>Action</th>
+                <th>Money Transfered</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let transaction of transactions" class="lists" style="color:black;font-weight: 800;font-family:'Lucida Sans';">
+                <td class="text-center">{{transaction.transactionid}}</td>
+                <td>{{transaction.action}}</td>
+                <td class="text-center">{{transaction.moneyTransfer}}</td>
+
+            </tr>
+            <tr *ngIf="transactionFlag">
+                <td colspan="3">{{transactionErrorMessage}}</td>
+            </tr>
+        </tbody>

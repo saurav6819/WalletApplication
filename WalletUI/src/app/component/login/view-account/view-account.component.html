@@ -1,0 +1,133 @@
+<div class="col-md-10 col-lg-10">
+    <h3>Update Your Account</h3>
+    <button class="btn btn-outline-dark" style="margin-left:95%;" (click)="enableFields()">Edit</button>
+    <br />
+    <form [formGroup]="updateForm">
+        <!-- Start of name input field -->
+        <div class="form-group row">
+            <label for="name" class="col-lg-4 text-right font-weight-bold">
+                Name :
+            </label>
+            <div class="col-lg-8">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="name" placeholder="Full Name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div *ngIf="submitted && updateForm.controls.name.errors">
+                    <div class="text-danger" *ngIf="updateForm.controls.name.errors.required">
+                        Name is required ..!
+                    </div>
+                    <div class="text-danger" *ngIf="updateForm.controls.name.errors.pattern">
+                        Name must start with a capital letter and should not contain any digit. ..!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of name input field -->
+
+        <!-- Start of username input field -->
+        <div class="form-group row">
+            <label for="username" class="col-lg-4 text-right font-weight-bold">
+                Username :
+            </label>
+            <div class="col-lg-8">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                    </div>
+                    <input type="text" formControlName="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+            </div>
+
+        </div>
+        <!-- End of username input field -->
+
+        <!-- Start of phone number input field -->
+        <div class="form-group row">
+            <label for="phNo" class="col-lg-4 text-right font-weight-bold">
+                Mobile Number :
+            </label>
+            <div class="col-lg-8">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">+91</span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="phNo" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+        </div>
+        <!-- End of phone number input field -->
+
+        <!-- Start of email input field -->
+        <div class="form-group row">
+            <label for="email" class="col-lg-4 text-right font-weight-bold">
+                Email :
+            </label>
+            <div class="col-lg-8">
+                <div class="input-group mb-3">
+                    <input type="email" class="form-control" formControlName="email" placeholder="Recipient's email-id" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <span class="input-group-text" id="basic-addon2">abc@example.com</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of email input field -->
+
+        <!-- Start of gender input field -->
+
+        <div class="form-group row">
+            <label for="gender" class="col-lg-4 text-right font-weight-bold">
+                Gender :
+            </label>
+            <div class="col-lg-8">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                    </div>
+                    <input type="text" class="form-control" formControlName="gender" placeholder="Gender" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+            </div>
+        </div>
+
+        <!-- End of gender input field -->
+
+
+        <!-- Start of password input field -->
+        <div class="form-group row">
+            <label for="password" class="col-lg-4 text-right font-weight-bold">
+                Password :
+            </label>
+            <div class="col-lg-8">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default"></span>
+                    </div>
+                    <input type="password" class="form-control" formControlName="password" placeholder="Password" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <div *ngIf="submitted && updateForm.controls.password.errors">
+                    <div class="text-danger" *ngIf="updateForm.controls.password.errors.required">
+                        Password is required ..!
+                    </div>
+                    <div class="text-danger" *ngIf="updateForm.controls.password.errors.pattern">
+                        Password must have 1 Lowercase letters, 1 Uppercase letters, 1 Numbers and 1 Special characters ..!
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of  Password input field -->
+
+
+
+
+        <div class="text-right">
+            <button class="btn btn-success" (click)="updateUser()">Save</button> &nbsp; &nbsp;
+
+
+            <a class="btn " routerLink="/loggedin">Back to Home Page</a>
+        </div>
+    </form>
+</div>

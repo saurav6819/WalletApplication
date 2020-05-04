@@ -1,0 +1,71 @@
+.sideComponent {
+    border: 2px solid black;
+    border-radius: 20px;
+    height: 500px;
+    font-size: x-large;
+    background-color: honeydew;
+}
+
+.downComponent {
+    margin-left: 5px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: darkseagreen;
+    margin-left: 15%;
+    height: 50px;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: whitesmoke;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: rgba(48, 185, 132, 0.479);
+}
+
+a:link {
+    color: green;
+}
+
+
+/* visited link */
+
+a:visited {
+    color: green;
+}
+
+
+/* mouse over link */
+
+a:hover {
+    color: green;
+    text-decoration: none;
+}
+
+
+/* selected link */
+
+a:active {
+    color: green;
+}
+
+.ex {
+    background-color: lightcoral;
+}
+
+li.ex :hover {
+    background-color: red;
+}

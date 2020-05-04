@@ -1,0 +1,41 @@
+<form [formGroup]="fundTransferForm">
+    <div class="col-md-12">
+        <!-- Start of username input field -->
+        <div>
+            <div class=" usernameDiv">
+                <span><img src="https://img.icons8.com/ios-filled/50/000000/username.png"/></span>
+                <input type="text" class="usernameInput" formControlName="receiverUsername" placeholder="Enter Username">
+            </div>
+            <!-- Validation Messages -->
+            <div *ngIf="submitted && fundTransferForm.controls.receiverUsername.errors">
+                <div class="text-danger" *ngIf="fundTransferForm.controls.receiverUsername.errors.required">
+                    <h4 style="margin-left: 5%;">Username is required..!</h4>
+                </div>
+            </div>
+        </div>
+        <!-- End of username input field -->
+        <br><br>
+        <!-- Start of money input field -->
+        <div>
+            <div class=" moneyDiv">
+                <span><img src="https://img.icons8.com/ios-filled/50/000000/rupee.png"/></span>
+                <input type="number" class="moneyInput" formControlName="money" placeholder="Enter Money">
+            </div>
+            <!-- Validation Messages -->
+            <div *ngIf="submitted && fundTransferForm.controls.money.errors">
+                <div class="text-danger" *ngIf="fundTransferForm.controls.money.errors.required">
+
+                    <h4 style="margin-left: 5%;">Please Enter the Money ..!</h4>
+                </div>
+            </div>
+            <div class="text-danger" *ngIf="errorFlag">
+                <h4 style="margin-left:5%">{{errorMessage}}</h4>
+            </div>
+
+        </div>
+        <!-- End of money input field -->
+        <br>
+        <button class="btn btn-success offset-lg-3" (click)="transfer()">Transfer</button>
+    </div>
+
+</form>

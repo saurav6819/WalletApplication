@@ -1,0 +1,62 @@
+<div class="col-md-12 row">
+
+    <div>
+        <img src="../../../../assets/{{user.gender|lowercase}}.png" alt="" width=100px height=100px style="border-radius:50px;margin-left:40%">
+    </div>
+    <div class="offset-lg-2">
+        <H1>{{greet}}{{user.name|titlecase}}</H1>
+    </div>
+
+    <div style="width: 250px;height:100px;" class="float-right">
+        <ul>
+
+            <li><a routerLink="/view">Your Account</a></li>
+            <li class="ex"><a (click)="logout()">LogOut</a></li>
+        </ul>
+    </div>
+</div>
+
+
+<hr>
+<div class="row downComponent">
+    <div class="col-lg-2 sideComponent">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th scope="col">Account Summary</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td> <a routerLink="showBalance">Show Balance</a></td>
+                </tr>
+                <tr>
+                    <td> <a routerLink="deposit">Deposit</a></td>
+                </tr>
+                <tr>
+                    <td><a routerLink="withdraw">Withdraw</a></td>
+                </tr>
+                <tr>
+                    <td><a routerLink="fundTransfer">Fund Transfer</a></td>
+
+                </tr>
+                <tr>
+                    <td><a routerLink="transaction">Show Transactions</a></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row col-lg-10">
+        <div style="width: 500px;height: 400px;margin-left: 10px;">
+            <p *ngIf="showDefaultMessage" style="font-size: xx-large;">Click an options to display the data</p>
+            <router-outlet (activate)="toggleDefaultMessage(false)" (deactivate)="toggleDefaultMessage(true)"></router-outlet>
+        </div>
+
+        <div>
+            <img src="../../../../assets/loggedin.png" alt="" width=700px; height="300px;">
+        </div>
+
+    </div>
+</div>
